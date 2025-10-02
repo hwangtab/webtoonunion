@@ -9,3 +9,48 @@
     font-family: theme('fontFamily.sans');
   }
 }
+
+@layer utilities {
+  .vignette {
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  }
+
+  .neon-glow {
+    text-shadow:
+      0 0 5px rgba(251, 191, 36, 0.8),
+      0 0 10px rgba(251, 191, 36, 0.6),
+      0 0 15px rgba(251, 191, 36, 0.4),
+      0 0 20px rgba(30, 58, 138, 0.5);
+  }
+
+  .enhanced-neon-pulse {
+    animation: enhanced-neon-pulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes enhanced-neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(251, 191, 36, 0.8),
+      0 0 10px rgba(251, 191, 36, 0.6),
+      0 0 15px rgba(251, 191, 36, 0.4),
+      0 0 20px rgba(30, 58, 138, 0.5),
+      0 0 25px rgba(255, 255, 255, 0.3);
+  }
+  33% {
+    text-shadow:
+      0 0 10px rgba(30, 58, 138, 1),
+      0 0 20px rgba(30, 58, 138, 0.8),
+      0 0 30px rgba(30, 58, 138, 0.6),
+      0 0 40px rgba(251, 191, 36, 0.7),
+      0 0 50px rgba(255, 255, 255, 0.4);
+  }
+  66% {
+    text-shadow:
+      0 0 15px rgba(255, 255, 255, 1),
+      0 0 25px rgba(255, 255, 255, 0.8),
+      0 0 35px rgba(251, 191, 36, 0.6),
+      0 0 45px rgba(30, 58, 138, 0.5),
+      0 0 55px rgba(251, 191, 36, 0.4);
+  }
+}

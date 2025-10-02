@@ -1,40 +1,22 @@
-import React from 'react';
-import Image from 'next/image';
-import Button from '@/components/common/Button';
+'use client';
 
-const HeroSection: React.FC = () => {
+import Button from '../common/Button';
+
+const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="full-width bg-gradient-to-r from-navy-500 to-blue-600 text-white py-20 text-center"
+      className="relative h-[60vh] sm:h-[70vh] md:h-screen w-full bg-[url('/images/webtoonunion4.jpg')] bg-cover bg-center bg-no-repeat"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl md:text-4xl font-sans font-bold mb-6 leading-tight">
-          우리의 권리, 우리가 함께 만들고 지킵니다.
+      <div className="absolute inset-0 bg-black/80" /> {/* 오버레이 */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center text-white">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+          웹툰 작가 노동조합
         </h1>
-        <p className="text-base md:text-lg text-white mb-8 max-w-2xl mx-auto font-sans">
-          웹툰 작가 노동조합은 창작자들의 권익을 보호하고, 공정한 산업 환경을
-          조성하기 위해 설립되었습니다. 함께 힘을 모아 더 나은 미래를
-          만들어갑시다.
+        <p className="text-lg md:text-xl mb-8 max-w-2xl drop-shadow-md">
+          웹툰 작가들의 권익 보호와 창작 환경 개선을 위해 함께합니다.
         </p>
-        <Button
-          href="https://drive.google.com/file/d/1qhFB8bIosFaN7CKdWzqsW5XFE87HVIPn/view"
-          target="_blank"
-          className="text-lg py-4 px-8"
-        >
-          조합 가입하기
-        </Button>
-        <div className="mt-12">
-          <Image
-            src="/images/icon.png"
-            alt="웹툰 작가 연대 일러스트"
-            width={300}
-            height={200}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            loading="lazy"
-            className="mx-auto opacity-50"
-          />
-        </div>
+        <Button>가입하기</Button>
       </div>
     </section>
   );
