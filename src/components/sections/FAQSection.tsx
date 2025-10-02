@@ -27,10 +27,24 @@ const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-12 px-4 max-w-4xl mx-auto">
-      <div className="max-w-4xl mx-auto">
-        <SectionTitle>자주 묻는 질문</SectionTitle>
-        <Accordion questions={faqQuestions} />
+    <section id="faq" className="py-20">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <SectionTitle eyebrow="FAQ" className="sm:text-4xl">
+          자주 묻는 질문
+        </SectionTitle>
+        <p className="mt-4 text-center text-sm leading-relaxed text-gray-600 sm:text-base">
+          더 궁금한 점은 언제든{' '}
+          <a
+            href="mailto:webtooncreatorunion@gmail.com"
+            className="font-medium text-primary underline-offset-4 hover:underline"
+          >
+            webtooncreatorunion@gmail.com
+          </a>
+          으로 문의해주세요.
+        </p>
+        <div className="mt-10">
+          <Accordion questions={faqQuestions} />
+        </div>
       </div>
     </section>
   );

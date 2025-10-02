@@ -1,21 +1,35 @@
-# AGENTS.md
+# Repository Guidelines
 
-This file provides guidance to agents when working with code in this repository.
+This guide keeps contributions to the Webtoon Union landing page consistent, accessible, and production-ready.
 
-## 프로젝트 특화 컨벤션
-- Atomic Design: common (Button 등), layout (Header), sections (HeroSection)으로 컴포넌트 분리
-- 모바일 우선: 모든 레이아웃 모바일부터 설계, Tailwind breakpoint sm:부터
-- 폰트: Pretendard 웹폰트 사용 (globals.css에 @import)
-- 컬러: 네이비 (#1E3A8A) 주요, 노란색 (#FBBF24) CTA, 흰색 기반
-- 배포: Vercel 자동, Git-Flow (main/develop/feature/* 브랜치), PR 시 프리뷰 URL 생성
-- SEO: Next.js Head로 메타 태그, next-sitemap으로 sitemap.xml 자동 생성 (postbuild 스크립트)
+## Project Structure & Module Organization
+- `src/app`: Next.js App Router layouts, metadata, and route-level assets.
+- `src/components/common | layout | sections`: Atomic design stack—build primitives in `common`, assemble scaffolding in `layout`, and ship hero-to-footer experiences from `sections`.
+- `public`: Static assets (logos, open-graph images, sitemap output) served as-is by Next.js.
+- `docs`: Copy decks and planning references; update when marketing messaging shifts.
+- Root configs (`tailwind.config.js`, `postcss.config.js`, `next-sitemap.config.js`) must change alongside any design system or deployment tweak.
 
-## 비표준 패턴
-- 가입 CTA: 모든 '조합 가입하기' 버튼은 구글 설문 링크로 target="_blank"
-- 내비게이션: react-scroll로 섹션 스크롤, 헤더 sticky
-- CMS 제외: 초기 정적 사이트, 콘텐츠는 코드 내 하드코딩 (업데이트 시 다중 파일 수정 필요, 향후 Headless CMS 고려)
+## Build, Test, and Development Commands
+- `npm run dev`: Launch local development server with hot reload.
+- `npm run build`: Create the production bundle; catches TypeScript and route issues.
+- `npm run start`: Serve the last build for acceptance testing.
+- `npm run lint`: Run Next.js linting (ESLint + Tailwind) to guard style and accessibility rules.
+- `npm run format`: Apply the shared Prettier profile before large refactors.
+- `npm run postbuild`: Regenerate `sitemap.xml` via `next-sitemap`; Vercel runs this automatically after successful builds.
 
-## 코드 스타일 세부
-- 포맷팅: Prettier (.prettierrc: singleQuote true, tabWidth 2, semi false 등 커스텀)
-- 스타일링: Tailwind CSS utility-first, globals.css에 커스텀 클래스만 추가 (네이비/노란색 팔레트 사용)
-- 테스트: 없음, 추가 시 src/__tests__에 배치, Vitest 권장 (Jest 대신 Vitest 사용)
+## Coding Style & Naming Conventions
+- Format with Prettier (2-space indent, 80-char width, single quotes, semicolons on); never hand-tune compiled output.
+- Components stay in TypeScript with explicit prop shaping. Name section exports `*Section` (e.g., `HeroSection`) and keep filenames PascalCase.
+- Tailwind is mobile-first: start layouts without breakpoints, then opt into `sm:` and up only as needed. Add custom styles only in `src/app/globals.css`.
+- Use the Pretendard font import already defined in `globals.css`. Keep primary navy `#1E3A8A` and CTA yellow `#FBBF24` as the palette baseline.
+
+## Testing Guidelines
+- No automated tests yet; add Vitest-based suites in `src/__tests__` when behaviour warrants. Name files `ComponentName.test.tsx`.
+- Prefer Testing Library patterns for user flows. When Vitest is added, run it alongside `npm run lint` before pushing.
+- Mirror real content in fixtures—CMS integration is deferred, so copy stays hardcoded.
+
+## Commit & Pull Request Guidelines
+- Follow the repository’s sentence-case, imperative summaries (e.g., `Update FAQSection ...`). Keep messages focused on user-visible outcomes.
+- Work on `feature/<slug>` branches off `develop`, then raise PRs into `develop`; `main` mirrors production.
+- Each PR: include a concise summary, linked issue or task, before/after screenshots for visual shifts, and confirm all CTA buttons target the Google Form in a new tab.
+- Approve Vercel preview builds and check in-page navigation (react-scroll anchors) before merging.

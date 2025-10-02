@@ -1,14 +1,36 @@
 import React from 'react';
 
 interface SectionTitleProps {
-  children: string;
+  children: React.ReactNode;
+  className?: string;
+  eyebrow?: string;
+  align?: 'left' | 'center';
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ children }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({
+  children,
+  className = '',
+  eyebrow,
+  align = 'center',
+}) => {
+  const alignment =
+    align === 'left' ? 'items-start text-left' : 'items-center text-center';
+
   return (
-    <h2 className="font-sans font-bold text-2xl md:text-3xl text-navy-900 mb-4 text-center">
-      {children}
-    </h2>
+    <div className={`flex flex-col ${alignment}`}>
+      {eyebrow && (
+        <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.3em] text-primary/70">
+          {eyebrow}
+        </span>
+      )}
+      <h2
+        className={`font-sans text-2xl font-bold text-navy-900 sm:text-3xl ${
+          align === 'left' ? 'text-left' : 'text-center'
+        } ${className}`}
+      >
+        {children}
+      </h2>
+    </div>
   );
 };
 

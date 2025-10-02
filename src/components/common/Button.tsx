@@ -6,6 +6,8 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   target?: string;
+  rel?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -13,10 +15,12 @@ const Button: React.FC<ButtonProps> = ({
   href,
   onClick,
   className = '',
-  target = '',
+  target,
+  rel,
+  type = 'button',
 }) => {
   const baseClasses =
-    'bg-yellow-500 text-navy-900 font-sans font-bold py-3 px-6 rounded-lg hover:bg-yellow-600 transition-colors duration-200 text-center block w-full sm:w-auto text-sm sm:text-base';
+    'inline-flex items-center justify-center rounded-full bg-yellow-500 px-6 py-3 text-sm font-semibold text-navy-900 shadow-card transition-all duration-200 hover:bg-yellow-600 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-500 sm:text-base';
 
   if (href) {
     return (
@@ -24,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
         href={href}
         target={target}
         className={`${baseClasses} ${className}`}
-        rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+        rel={rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)}
       >
         {children}
       </a>
@@ -32,7 +36,11 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button onClick={onClick} className={`${baseClasses} ${className}`}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={`${baseClasses} ${className}`}
+    >
       {children}
     </button>
   );

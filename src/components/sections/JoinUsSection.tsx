@@ -2,85 +2,79 @@ import React from 'react';
 import Button from '../common/Button';
 import SectionTitle from '../common/SectionTitle';
 
+const steps = [
+  {
+    title: '신청서 다운로드',
+    description: '공식 양식(HWP)을 내려받아 개인 정보를 작성할 준비를 합니다.',
+    action: {
+      label: '가입 신청서 다운로드',
+      href: 'https://drive.google.com/file/d/1qhFB8bIosFaN7CKdWzqsW5XFE87HVIPn/view',
+      target: '_blank',
+    },
+  },
+  {
+    title: '작성 및 서명',
+    description:
+      '다운로드한 양식을 작성하고, 마지막 페이지에 자필 서명을 추가합니다.',
+  },
+  {
+    title: '제출',
+    description:
+      '완료된 신청서를 웹툰노조 이메일 (webtooncreatorunion@gmail.com)로 첨부해 전송합니다.',
+    action: {
+      label: '신청서 메일 보내기',
+      href: 'mailto:webtooncreatorunion@gmail.com?subject=웹툰노조 가입 신청서 제출&body=첨부: 가입신청서.hwp',
+      target: '_blank',
+    },
+  },
+  {
+    title: '심사 및 승인',
+    description:
+      '사무국에서 신청서를 검토하고, 3영업일 이내에 결과를 이메일로 안내합니다.',
+  },
+  {
+    title: '가입 완료',
+    description:
+      '조합비 납부와 환영 안내 수신 후 정식 조합원으로 활동을 시작합니다.',
+  },
+];
+
 const JoinUsSection = () => {
   return (
-    <section id="join" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-8">
-          <SectionTitle className="text-3xl md:text-4xl font-bold text-navy-900 mb-8 text-center">
-            가입 안내
-          </SectionTitle>
-        </div>
-        <div className="max-w-4xl mx-auto space-y-6">
-          <ol className="space-y-6 text-gray-700 text-base leading-relaxed">
-            <li>
-              <div className="flex flex-col items-start gap-2">
-                <span className="font-semibold text-navy-900">
-                  신청서 다운로드
-                </span>
-                <p className="text-gray-600">
-                  가입 신청서 HWP 파일을 다운로드하세요.
+    <section id="join" className="relative py-20">
+      <div className="absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-primary/5 via-white/40 to-transparent" />
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <SectionTitle className="text-3xl sm:text-4xl" eyebrow="Join union">
+          가입은 이렇게 진행됩니다
+        </SectionTitle>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-gray-600 sm:text-base">
+          모든 단계는 온라인으로 진행됩니다. 조합 가입 신청서는 구글 폼과 같은
+          공개 플랫폼 대신 이메일로 접수되어 개인정보가 안전하게 관리됩니다.
+        </p>
+        <ol className="relative mx-auto mt-12 max-w-3xl list-none border-l border-navy-100 pl-10">
+          {steps.map((step, index) => (
+            <li key={step.title} className="relative mb-10 last:mb-0">
+              <span className="absolute -left-6 flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-white font-semibold text-primary shadow-card">
+                {index + 1}
+              </span>
+              <div className="rounded-3xl bg-white/90 p-6 shadow-card">
+                <h3 className="text-lg font-bold text-navy-900 sm:text-xl">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600 sm:text-base">
+                  {step.description}
                 </p>
-                <Button
-                  href="https://drive.google.com/file/d/1qhFB8bIosFaN7CKdWzqsW5XFE87HVIPn/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md text-sm font-medium"
-                >
-                  가입 신청서 다운로드
-                </Button>
+                {step.action && (
+                  <div className="mt-5">
+                    <Button href={step.action.href} target={step.action.target}>
+                      {step.action.label}
+                    </Button>
+                  </div>
+                )}
               </div>
             </li>
-            <li>
-              <div className="flex flex-col items-start gap-2">
-                <span className="font-semibold text-navy-900">
-                  작성 및 서명
-                </span>
-                <p className="text-gray-600">
-                  다운로드한 HWP 파일을 작성하고 서명하세요.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="flex flex-col items-start gap-2">
-                <span className="font-semibold text-navy-900">제출</span>
-                <p className="text-gray-600">
-                  작성된 신청서를 웹툰노조 이메일
-                  (webtooncreatorunion@gmail.com)로 제출합니다.
-                </p>
-                <Button
-                  as="a"
-                  href="mailto:webtooncreatorunion@gmail.com?subject=웹툰노조 가입 신청서 제출&body=첨부: 가입신청서.hwp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md text-sm font-medium"
-                >
-                  신청서 메일 보내기
-                </Button>
-              </div>
-            </li>
-            <li>
-              <div className="flex flex-col items-start gap-2">
-                <span className="font-semibold text-navy-900">
-                  심사 및 승인
-                </span>
-                <p className="text-gray-600">
-                  조합 사무국에서 신청서를 검토하고, 3영업일 이내에 승인 여부를
-                  통보합니다.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="flex flex-col items-start gap-2">
-                <span className="font-semibold text-navy-900">가입 완료</span>
-                <p className="text-gray-600">
-                  승인 후 조합비 납부와 함께 정식 조합원이 됩니다. 환영 이메일을
-                  발송합니다.
-                </p>
-              </div>
-            </li>
-          </ol>
-        </div>
+          ))}
+        </ol>
       </div>
     </section>
   );

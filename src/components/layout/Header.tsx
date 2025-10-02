@@ -15,73 +15,71 @@ interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   return (
-    <header className="sticky top-0 bg-white shadow-md z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row justify-between items-center py-4">
-          <div className="flex items-center space-x-4 mb-4 sm:mb-0">
-            <Link href="/">
-              <Image
-                src="/images/logo.png"
-                alt="웹툰작가노동조합 로고"
-                width={120}
-                height={60}
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="w-24 sm:w-32"
-              />
-            </Link>
-          </div>
-          <nav className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8 w-full sm:w-auto">
-            <ScrollLink
-              to="hero"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer hover:text-yellow-500 transition-colors text-navy-900 font-sans"
-            >
-              홈
-            </ScrollLink>
-            <ScrollLink
-              to="about"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer hover:text-yellow-500 transition-colors text-navy-900 font-sans"
-            >
-              소개
-            </ScrollLink>
-            <ScrollLink
-              to="activities"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer hover:text-yellow-500 transition-colors text-navy-900 font-sans"
-            >
-              주요 활동
-            </ScrollLink>
-            <ScrollLink
-              to="join"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer hover:text-yellow-500 transition-colors text-navy-900 font-sans"
-            >
-              가입 안내
-            </ScrollLink>
-            <ScrollLink
-              to="faq"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer hover:text-yellow-500 transition-colors text-navy-900 font-sans"
-            >
-              FAQ
-            </ScrollLink>
-          </nav>
-          <div className="w-full sm:w-auto">
-            <Button
-              href="https://drive.google.com/file/d/1qhFB8bIosFaN7CKdWzqsW5XFE87HVIPn/view"
-              target="_blank"
-              className="w-full sm:ml-4"
-            >
-              조합 가입하기
-            </Button>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-white/40 bg-white/85 backdrop-blur-md shadow-sm supports-[backdrop-filter]:bg-white/70">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-3 transition-all sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between sm:justify-start">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo.png"
+              alt="웹툰작가노동조합 로고"
+              width={132}
+              height={64}
+              priority
+              sizes="(max-width: 768px) 160px, 200px"
+              className="h-auto w-28 transition-transform duration-200 sm:w-36"
+            />
+          </Link>
+        </div>
+        <nav className="flex w-full flex-col items-center gap-3 text-sm font-medium text-navy-900 sm:w-auto sm:flex-row sm:gap-6 sm:text-base">
+          <ScrollLink
+            to="hero"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
+          >
+            홈
+          </ScrollLink>
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
+          >
+            소개
+          </ScrollLink>
+          <ScrollLink
+            to="activities"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
+          >
+            주요 활동
+          </ScrollLink>
+          <ScrollLink
+            to="join"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
+          >
+            가입 안내
+          </ScrollLink>
+          <ScrollLink
+            to="faq"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
+          >
+            FAQ
+          </ScrollLink>
+        </nav>
+        <div className="flex w-full items-center sm:w-auto">
+          <Button
+            href="https://drive.google.com/file/d/1qhFB8bIosFaN7CKdWzqsW5XFE87HVIPn/view"
+            target="_blank"
+            className="w-full sm:w-auto"
+          >
+            조합 가입하기
+          </Button>
         </div>
       </div>
     </header>

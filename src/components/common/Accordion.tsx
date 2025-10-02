@@ -12,42 +12,50 @@ interface AccordionProps {
 }
 
 const Accordion: React.FC<AccordionProps> = ({ questions }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="space-y-4 w-full">
-      {questions.map((item, index) => (
-        <div
-          key={index}
-          className="border border-gray-300 rounded bg-gray-100 overflow-hidden"
-        >
-          <button
-            onClick={() => toggle(index)}
-            className="w-full text-left p-3 bg-gray-100 hover:bg-navy-100 focus:outline-none focus:ring-2 focus:ring-navy-500"
-            aria-expanded={openIndex === index}
-            aria-controls={`accordion-${index}`}
-          >
-            <h3 className="text-navy-900 font-sans font-semibold">
-              {item.question}
-            </h3>
-          </button>
+    <div className="w-full space-y-4">
+      {questions.map((item, index) => {
+        const isOpen = openIndex === index;
+
+        return (
           <div
-            id={`accordion-${index}`}
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              openIndex === index ? 'max-h-96' : 'max-h-0'
-            }`}
-            aria-hidden={openIndex !== index}
+            key={item.question}
+            className="overflow-hidden rounded-3xl border border-white/60 bg-white/95 shadow-card"
           >
-            <div className="p-3 bg-navy-100">
-              <p className="text-gray-900 font-sans">{item.answer}</p>
+            <button
+              type="button"
+              onClick={() => toggle(index)}
+              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-navy-100/50 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/40"
+              aria-expanded={isOpen}
+              aria-controls={`accordion-${index}`}
+            >
+              <span className="text-base font-semibold text-navy-900 sm:text-lg">
+                {item.question}
+              </span>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-lg font-bold text-primary">
+                {isOpen ? '–' : '+'}
+              </span>
+            </button>
+            <div
+              id={`accordion-${index}`}
+              className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              }`}
+              aria-hidden={!isOpen}
+            >
+              <div className="overflow-hidden px-6 pb-6 text-sm leading-relaxed text-gray-600 sm:text-base">
+                {item.answer}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
