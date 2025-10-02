@@ -39,7 +39,7 @@ const Accordion: React.FC<AccordionProps> = ({ questions }) => {
               aria-expanded={isOpen}
               aria-controls={`accordion-${index}`}
             >
-              <div className="flex flex-1 flex-col gap-2">
+              <div className="flex flex-1 flex-col justify-center gap-1">
                 <span className="text-base font-semibold text-pretty text-navy-900 sm:text-lg">
                   {item.question}
                 </span>
