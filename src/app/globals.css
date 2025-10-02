@@ -26,6 +26,12 @@
   .enhanced-neon-pulse {
     animation: enhanced-neon-pulse 3s ease-in-out infinite;
   }
+
+  ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    padding-left: 2.5rem;
+  }
 }
 
 @keyframes enhanced-neon-pulse {
