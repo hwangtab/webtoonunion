@@ -10,7 +10,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, description, icon }) => {
   return (
     <article className="group relative flex h-full flex-col rounded-3xl bg-white/90 p-6 text-left shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <h3 className="text-lg font-bold text-navy-900 sm:text-xl">{title}</h3>
         {icon && (
           <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -25,10 +25,12 @@ const Card: React.FC<CardProps> = ({ title, description, icon }) => {
           </span>
         )}
       </div>
-      <p className="mt-4 text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
+      <p className="mt-4 flex-1 text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
         {description}
       </p>
-      <div className="mt-6 h-[3px] w-10 rounded-full bg-yellow-500 transition-all duration-200 group-hover:w-16" />
+      <div className="mt-6 flex items-end">
+        <span className="h-[3px] w-10 rounded-full bg-yellow-500 transition-all duration-200 group-hover:w-16" />
+      </div>
     </article>
   );
 };
