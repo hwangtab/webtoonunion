@@ -12,7 +12,7 @@ interface AccordionProps {
 }
 
 const Accordion: React.FC<AccordionProps> = ({ questions }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -35,12 +35,12 @@ const Accordion: React.FC<AccordionProps> = ({ questions }) => {
             <button
               type="button"
               onClick={() => toggle(index)}
-              className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left transition-colors duration-300 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/40 sm:px-8 sm:py-7"
+              className="flex w-full min-h-[88px] items-center justify-between gap-6 px-6 py-5 text-left transition-colors duration-300 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/40 sm:px-8 sm:py-6"
               aria-expanded={isOpen}
               aria-controls={`accordion-${index}`}
             >
-              <div className="flex flex-1 flex-col justify-center gap-1">
-                <span className="text-base font-semibold text-pretty text-navy-900 sm:text-lg">
+              <div className="flex min-h-[1.75rem] flex-1 flex-col justify-center gap-1">
+                <span className="text-base font-semibold leading-tight text-pretty text-navy-900 sm:text-lg">
                   {item.question}
                 </span>
                 <span className="text-xs font-medium uppercase tracking-[0.35em] text-primary/60 sm:hidden">
