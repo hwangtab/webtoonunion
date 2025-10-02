@@ -38,7 +38,7 @@ const ActivitiesSection: React.FC = () => {
           <SectionTitle eyebrow="What we do" className="sm:text-4xl">
             조합이 만드는 변화들
           </SectionTitle>
-          <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
             조합은 현장의 목소리를 모아 제도화하고, 작가 개인이 겪는 어려움을
             함께 해결합니다. 각 활동은 서로 연결되어 지속 가능한 생태계를
             지향합니다.

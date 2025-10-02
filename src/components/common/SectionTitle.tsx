@@ -24,7 +24,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
         </span>
       )}
       <h2
-        className={`font-sans text-2xl font-bold text-navy-900 sm:text-3xl ${
+        className={`font-sans text-2xl font-bold text-balance text-navy-900 sm:text-3xl ${
           align === 'left' ? 'text-left' : 'text-center'
         } ${className}`}
       >

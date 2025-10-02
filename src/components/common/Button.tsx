@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
 }) => {
   const baseClasses =
-    'inline-flex items-center justify-center rounded-full bg-yellow-500 px-6 py-3 text-sm font-semibold text-navy-900 shadow-card transition-all duration-200 hover:bg-yellow-600 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-500 sm:text-base';
+    'inline-flex items-center justify-center break-keep rounded-full bg-yellow-500 px-6 py-3 text-sm font-semibold text-navy-900 shadow-card transition-all duration-200 hover:bg-yellow-600 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-500 sm:text-base';
 
   if (href) {
     return (

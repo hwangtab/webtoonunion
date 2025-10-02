@@ -32,7 +32,7 @@ const FAQSection: React.FC = () => {
         <SectionTitle eyebrow="FAQ" className="sm:text-4xl">
           자주 묻는 질문
         </SectionTitle>
-        <p className="mt-4 text-center text-sm leading-relaxed text-gray-600 sm:text-base">
+        <p className="mt-4 text-center text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
           더 궁금한 점은 언제든{' '}
           <a
             href="mailto:webtooncreatorunion@gmail.com"

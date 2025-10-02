@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ title, description, icon }) => {
           </span>
         )}
       </div>
-      <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+      <p className="mt-4 text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
         {description}
       </p>
       <div className="mt-6 h-[3px] w-10 rounded-full bg-yellow-500 transition-all duration-200 group-hover:w-16" />

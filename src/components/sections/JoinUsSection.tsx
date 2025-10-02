@@ -19,8 +19,7 @@ const steps = [
   },
   {
     title: '제출',
-    description:
-      '완료된 신청서를 웹툰노조 이메일 (webtooncreatorunion@gmail.com)로 첨부해 전송합니다.',
+    description: '완료된 신청서를 웹툰노조 이메일로 첨부해 전송합니다.',
     action: {
       label: '신청서 메일 보내기',
       href: 'mailto:webtooncreatorunion@gmail.com?subject=웹툰노조 가입 신청서 제출&body=첨부: 가입신청서.hwp',
@@ -47,7 +46,7 @@ const JoinUsSection = () => {
         <SectionTitle className="text-3xl sm:text-4xl" eyebrow="Join union">
           가입은 이렇게 진행됩니다
         </SectionTitle>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-gray-600 sm:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
           모든 단계는 온라인으로 진행됩니다. 조합 가입 신청서는 구글 폼과 같은
           공개 플랫폼 대신 이메일로 접수되어 개인정보가 안전하게 관리됩니다.
         </p>
@@ -61,7 +60,7 @@ const JoinUsSection = () => {
                 <h3 className="text-lg font-bold text-navy-900 sm:text-xl">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-600 sm:text-base">
+                <p className="mt-3 text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
                   {step.description}
                 </p>
                 {step.action && (

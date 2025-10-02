@@ -10,17 +10,18 @@ const HeroSection = () => {
     >
       <div className="absolute inset-0">
         <div className="absolute inset-0 scale-105 bg-[url('/images/webtoonunion4.jpg')] bg-cover bg-center bg-no-repeat" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-900/88 via-navy-900/70 to-navy-900/90" />
-        <div className="absolute inset-x-0 -bottom-40 h-80 bg-gradient-to-t from-[var(--color-surface)] to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(15,23,42,0.25)_0%,rgba(15,23,42,0.6)_45%,rgba(15,23,42,0.82)_70%,rgba(14,21,38,0.94)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060e21]/92 via-[#0b1736]/88 to-[#0d1a3a]/95" />
+        <div className="absolute inset-x-0 -bottom-40 h-80 bg-gradient-to-t from-[var(--color-surface)]/85 to-transparent" />
       </div>
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-4 py-20 text-center text-white sm:px-8">
-        <p className="mb-3 text-sm uppercase tracking-[0.28em] text-yellow-400/90">
+        <p className="mb-3 text-sm uppercase tracking-[0.28em] text-yellow-400/90 text-pretty">
           WEBTOON CREATOR UNION
         </p>
-        <h1 className="mb-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+        <h1 className="mb-4 max-w-3xl text-4xl font-bold leading-tight text-balance sm:text-5xl md:text-6xl">
           창작 환경을 지키는 가장 든든한 연대
         </h1>
-        <p className="mb-10 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
+        <p className="mb-10 max-w-2xl text-base leading-relaxed text-pretty text-white/85 sm:text-lg">
           조합은 공정한 계약, 안정된 작업 환경, 그리고 서로를 지켜주는 정보
           공유로 웹툰 산업의 미래를 만들어 갑니다. 지금 함께하세요.
         </p>
