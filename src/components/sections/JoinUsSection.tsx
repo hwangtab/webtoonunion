@@ -20,6 +20,7 @@ const steps = [
   {
     title: '제출',
     description: '완료된 신청서를 웹툰노조 이메일로 첨부해 전송합니다.',
+    email: 'webtooncreatorunion@gmail.com',
     action: {
       label: '신청서 메일 보내기',
       href: 'mailto:webtooncreatorunion@gmail.com?subject=웹툰노조 가입 신청서 제출&body=첨부: 가입신청서.hwp',
@@ -63,8 +64,21 @@ const JoinUsSection = () => {
                 <p className="mt-3 text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
                   {step.description}
                 </p>
+                {step.email && (
+                  <div className="mt-4 flex flex-wrap items-center gap-2 rounded-2xl bg-primary/5 px-4 py-3 text-sm text-primary">
+                    <span className="font-semibold uppercase tracking-[0.2em] text-primary/70">
+                      EMAIL
+                    </span>
+                    <a
+                      href={`mailto:${step.email}`}
+                      className="font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      {step.email}
+                    </a>
+                  </div>
+                )}
                 {step.action && (
-                  <div className="mt-5">
+                  <div className="mt-4">
                     <Button href={step.action.href} target={step.action.target}>
                       {step.action.label}
                     </Button>
