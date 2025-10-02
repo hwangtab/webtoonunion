@@ -53,11 +53,14 @@ const JoinUsSection = () => {
         </p>
         <ol className="relative mx-auto mt-12 max-w-3xl list-none border-l border-navy-100 pl-10">
           {steps.map((step, index) => (
-            <li key={step.title} className="relative mb-10 last:mb-0">
+            <li
+              key={step.title}
+              className="group relative mb-10 transition-transform duration-300 last:mb-0 hover:-translate-y-1"
+            >
               <span className="absolute -left-6 flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-white font-semibold text-primary shadow-card">
                 {index + 1}
               </span>
-              <div className="rounded-3xl bg-white/90 p-6 shadow-card">
+              <div className="rounded-3xl bg-white/90 p-6 shadow-card transition-all duration-300 group-hover:shadow-card-hover">
                 <h3 className="text-lg font-bold text-navy-900 sm:text-xl">
                   {step.title}
                 </h3>

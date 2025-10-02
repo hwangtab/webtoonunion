@@ -10,7 +10,7 @@ const AboutSection = () => {
       />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-stretch gap-8 lg:grid-cols-2 xl:gap-16">
-          <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-white/90 p-8 shadow-card sm:p-10">
+          <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-white/90 p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover sm:p-10">
             <div className="absolute -top-16 -right-20 h-40 w-40 rounded-full bg-yellow-500/20 blur-3xl" />
             <div className="absolute -bottom-24 -left-20 h-48 w-48 rounded-full bg-primary/15 blur-3xl" />
             <div className="relative flex h-full flex-col space-y-6">
@@ -45,7 +45,7 @@ const AboutSection = () => {
             </div>
           </div>
           <div className="relative grid h-full grid-rows-2 gap-6">
-            <div className="relative overflow-hidden rounded-3xl bg-white/70 p-3 shadow-card backdrop-blur-sm">
+            <div className="relative overflow-hidden rounded-3xl bg-white/70 p-3 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
               <div className="absolute inset-0 rounded-2xl border border-white/50" />
               <Image
                 src="/images/webtoonunion3.jpg"
@@ -59,7 +59,7 @@ const AboutSection = () => {
                 policy action
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-3xl bg-white/70 p-3 shadow-card backdrop-blur-sm">
+            <div className="relative overflow-hidden rounded-3xl bg-white/70 p-3 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
               <div className="absolute inset-0 rounded-2xl border border-white/50" />
               <Image
                 src="/images/webtoonunion5.jpg"
