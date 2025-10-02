@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -14,8 +14,28 @@ const ScrollLink = dynamic(
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
+  const headerRef = useRef<HTMLElement | null>(null);
+  const [scrollOffset, setScrollOffset] = useState(-128);
+
+  useEffect(() => {
+    const updateOffset = () => {
+      const height = headerRef.current?.getBoundingClientRect().height ?? 0;
+      setScrollOffset(-(height + 24));
+    };
+
+    updateOffset();
+    window.addEventListener('resize', updateOffset);
+
+    return () => {
+      window.removeEventListener('resize', updateOffset);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/40 bg-white/85 backdrop-blur-md shadow-sm supports-[backdrop-filter]:bg-white/70">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 border-b border-white/40 bg-white/85 backdrop-blur-md shadow-sm supports-[backdrop-filter]:bg-white/70"
+    >
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-3 transition-all sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div className="flex items-center justify-between sm:justify-start">
           <Link href="/" className="flex items-center">
@@ -35,6 +55,7 @@ const Header: React.FC<HeaderProps> = () => {
             to="hero"
             smooth={true}
             duration={500}
+            offset={scrollOffset}
             className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
           >
             홈
@@ -43,6 +64,7 @@ const Header: React.FC<HeaderProps> = () => {
             to="about"
             smooth={true}
             duration={500}
+            offset={scrollOffset}
             className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
           >
             소개
@@ -51,6 +73,7 @@ const Header: React.FC<HeaderProps> = () => {
             to="activities"
             smooth={true}
             duration={500}
+            offset={scrollOffset}
             className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
           >
             주요 활동
@@ -59,6 +82,7 @@ const Header: React.FC<HeaderProps> = () => {
             to="join"
             smooth={true}
             duration={500}
+            offset={scrollOffset}
             className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
           >
             가입 안내
@@ -67,6 +91,7 @@ const Header: React.FC<HeaderProps> = () => {
             to="faq"
             smooth={true}
             duration={500}
+            offset={scrollOffset}
             className="cursor-pointer rounded-full px-4 py-2 transition-colors duration-200 hover:bg-navy-100 hover:text-primary"
           >
             FAQ
