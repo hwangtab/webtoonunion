@@ -3,7 +3,9 @@ import React, { ReactNode } from 'react';
 interface ButtonProps {
   children: ReactNode;
   href?: string;
-  onClick?: () => void;
+  onClick?: (
+    event?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => void;
   className?: string;
   target?: string;
   rel?: string;

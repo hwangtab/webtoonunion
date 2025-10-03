@@ -5,8 +5,8 @@ import Button from '../common/Button';
 
 const HeroSection = () => {
   const handleScrollToJoin = useCallback(
-    (event: MouseEvent<HTMLAnchorElement>) => {
-      event.preventDefault();
+    (event?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+      event?.preventDefault();
       const target = document.getElementById('join');
       if (!target) return;
       const header = document.querySelector<HTMLElement>(
