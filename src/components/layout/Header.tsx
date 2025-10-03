@@ -34,6 +34,7 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <header
       ref={headerRef}
+      data-scroll-anchor
       className="sticky top-0 z-50 border-b border-white/40 bg-white/85 backdrop-blur-md shadow-sm supports-[backdrop-filter]:bg-white/70"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-3 transition-all sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">

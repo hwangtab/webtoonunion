@@ -27,6 +27,7 @@ const Button: React.FC<ButtonProps> = ({
       <a
         href={href}
         target={target}
+        onClick={onClick}
         className={`${baseClasses} ${className}`}
         rel={rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)}
       >

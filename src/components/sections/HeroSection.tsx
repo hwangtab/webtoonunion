@@ -1,8 +1,24 @@
 'use client';
 
+import { useCallback, type MouseEvent } from 'react';
 import Button from '../common/Button';
 
 const HeroSection = () => {
+  const handleScrollToJoin = useCallback(
+    (event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      const target = document.getElementById('join');
+      if (!target) return;
+      const header = document.querySelector<HTMLElement>(
+        '[data-scroll-anchor]'
+      );
+      const offset = (header?.getBoundingClientRect().height ?? 0) + 24;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    },
+    []
+  );
+
   return (
     <section
       id="hero"
@@ -26,7 +42,7 @@ const HeroSection = () => {
           공유로 웹툰 산업의 미래를 만들어 갑니다. 지금 함께하세요.
         </p>
         <div className="flex flex-col items-center gap-3 sm:flex-row">
-          <Button href="#join" className="px-8">
+          <Button href="#join" className="px-8" onClick={handleScrollToJoin}>
             가입 절차 살펴보기
           </Button>
           <Button
