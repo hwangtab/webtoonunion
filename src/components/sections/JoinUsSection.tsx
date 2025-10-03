@@ -60,15 +60,15 @@ const JoinUsSection = () => {
               <span className="absolute -left-6 flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-white font-semibold text-primary shadow-card">
                 {index + 1}
               </span>
-              <div className="rounded-3xl bg-white/90 p-6 shadow-card transition-all duration-300 group-hover:shadow-card-hover">
+              <div className="flex flex-col items-center rounded-3xl bg-white/90 p-6 text-center shadow-card transition-all duration-300 group-hover:shadow-card-hover sm:px-8 sm:py-7">
                 <h3 className="text-lg font-bold text-navy-900 sm:text-xl">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-pretty text-gray-600 sm:text-base">
                   {step.description}
                 </p>
                 {step.email && (
-                  <div className="mt-4 flex flex-wrap items-center gap-2 rounded-2xl bg-primary/5 px-4 py-3 text-sm text-primary">
+                  <div className="mt-4 flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-primary/5 px-4 py-3 text-sm text-primary">
                     <span className="font-semibold uppercase tracking-[0.2em] text-primary/70">
                       EMAIL
                     </span>
@@ -81,7 +81,7 @@ const JoinUsSection = () => {
                   </div>
                 )}
                 {step.action && (
-                  <div className="mt-4">
+                  <div className="mt-4 flex justify-center">
                     <Button href={step.action.href} target={step.action.target}>
                       {step.action.label}
                     </Button>
